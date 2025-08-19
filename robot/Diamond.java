@@ -10,6 +10,8 @@ public class Diamond implements Directions{
         // the bigger the street, the farther north
         World.setSize(20,20);
 
+        World.setDelay(10);
+
 
         // The line below creates a Robot that we will refer to as rob
         // Find out what the numbers and direction do!
@@ -24,6 +26,41 @@ public class Diamond implements Directions{
 
         // starting the letter R
         rob.putBeeper();
+        rob.move();
+        rob.turnLeft();
+        rob.move();
+        rob.putBeeper();
+        rob.turnLeft();
+        rob.turnLeft();
+        rob.turnLeft();
+        rob.move();
+        rob.turnLeft();
+        rob.move();
+        rob.putBeeper();
+        rob.turnLeft();
+        rob.turnLeft();
+        rob.turnLeft();
+        rob.move();
+        rob.turnLeft();
+        rob.move();
+        rob.putBeeper();
+        rob.turnLeft();
+        rob.turnLeft();
+        rob.turnLeft();
+        rob.move();
+        rob.turnLeft();
+        rob.move();
+        rob.putBeeper();
+        rob.move();
+        rob.turnLeft();
+        rob.move();
+        rob.putBeeper();
+        rob.turnLeft();
+        rob.turnLeft();
+        rob.turnLeft();
+        rob.move();
+        rob.putBeeper();
+
 
 
 
