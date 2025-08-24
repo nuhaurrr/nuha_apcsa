@@ -30,9 +30,11 @@ public class Diamond implements Directions{
         rob.turnLeft();
         rob.move();
         rob.putBeeper();
-        rob.turnLeft();
-        rob.turnLeft();
-        rob.turnLeft();
+        // loop i used to improve my code
+        for (int num=0; num<3; num++)
+        {
+            rob.turnLeft();
+        }
         rob.move();
         rob.turnLeft();
         rob.move();
