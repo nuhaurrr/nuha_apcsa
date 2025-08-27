@@ -28,15 +28,19 @@ class Math {
     //For AP we need to know: int, double, boolean
 
     //List examples of the types below and give definition
-    //int (integer):
-    //double:
-    //boolean:
+    //int (integer): number of apples, a whole number
+    //double: a decimal value - weight, height, etc
+    //boolean: a true/false value whether someone can write or not 
 
     //For now we are just going to work with primitive
 
     //Create 3 variables of each of the above types (USE GOOD CODING PRACTICE WHEN CREATING THE VARIABLES
+    int numberOfApples = 67;
+    double height = 8.9;
+    boolean writeOrNot = true;
+    //
 
-//hghgh
+    
 
 
 
