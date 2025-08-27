@@ -55,9 +55,27 @@ class Math {
 
     //Odd integers from 1 to 100, inclusive of both
 
+    for(int i = 1; i <=100; i+=2;)
+    {
+      System.out.println(i);
+    }
+
 
 
     //All multiples of 3 from 1 to 100
+
+    for(int i =3; i<=100; i+=1)
+    {
+      System.out.println(i);
+    }
+
+    for(int i=3; 1<=100; i++)
+    {
+      if (i % 3 == 0)
+      {
+        System.out.println(i);
+      }
+    }
 
 
 
