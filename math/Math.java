@@ -73,18 +73,17 @@ class Math {
 
     //All multiples of 3 from 1 to 100
 
-    for(int i =3; i<=100; i+=1)
-    {
-      System.out.println(i);
+    public class Main {
+    public static void main(String[] args) {
+        System.out.println("Multiples of 3 from 1 to 100:");
+        for (int i = 1; i <= 100; i++) {
+            if (i % 3 == 0) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println(); // new line after the loop
     }
-
-    for(int i=3; 1<=100; i++)
-    {
-      if (i % 3 == 0)
-      {
-        System.out.println(i);
-      }
-    }
+}
 
 
 
