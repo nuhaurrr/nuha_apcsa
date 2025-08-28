@@ -55,10 +55,19 @@ class Math {
 
     //Odd integers from 1 to 100, inclusive of both
 
-    for(int i = 1; i <=100; i+=2;)
-    {
-      System.out.println(i);
+    public class Main {
+    public static void main(String[] args) {
+        System.out.println("Odd integers from 1 to 100:");
+        for (int i = 1; i <= 100; i++) {
+            if (i % 2 != 0) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println(); // for a new line after the loop
     }
+}
+
+
 
 
 
