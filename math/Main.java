@@ -55,8 +55,7 @@ class Math {
 
     //Odd integers from 1 to 100, inclusive of both
 
-    public class Main {
-    public static void main(String[] args) {
+   
         System.out.println("Odd integers from 1 to 100:");
         for (int i = 1; i <= 100; i++) {
             if (i % 2 != 0) {
@@ -64,8 +63,6 @@ class Math {
             }
         }
         System.out.println(); // for a new line after the loop
-    }
-}
 
 
 
@@ -73,8 +70,6 @@ class Math {
 
     //All multiples of 3 from 1 to 100
 
-    public class Main {
-    public static void main(String[] args) {
         System.out.println("Multiples of 3 from 1 to 100:");
         for (int i = 1; i <= 100; i++) {
             if (i % 3 == 0) {
@@ -82,16 +77,12 @@ class Math {
             }
         }
         System.out.println(); // new line after the loop
-    }
-}
 
 
 
 
-    //Starting at 1000, print on the same line (with a - [hypthen] between each) all of the numbers that end in 0 going down to 0
 
-    public class Main {
-    public static void main(String[] args) {
+    //
         for (int i = 1000; i >= 0; i--) {
             if (i % 10 == 0) {
                 System.out.print(i);
@@ -100,8 +91,7 @@ class Math {
                 }
             }
         }
-    }
 }
 
   }
-}
+
