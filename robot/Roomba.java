@@ -51,14 +51,14 @@ public class Roomba implements Directions {
 			roomba.pickBeeper();
 			totalBeepers +=1 ;
 		}
-		if 
+		roomba.move();
+		roomba.move();
+		roomba.turnLeft();
+		roomba.move();
+		while (roomba.nextToABeeper())
 		{
-			
-
-		}
-		else
-		{
-
+			roomba.pickBeeper();
+			totalBeepers +=1 ;
 		}
 
 
