@@ -51,6 +51,15 @@ public class Roomba implements Directions {
 			roomba.pickBeeper();
 			totalBeepers +=1 ;
 		}
+		if 
+		{
+			
+
+		}
+		else
+		{
+
+		}
 
 
 
