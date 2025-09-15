@@ -62,6 +62,18 @@ public class Roomba implements Directions {
                         pileCount += 1;
                     }
                 }
+        //finding the biggest pile
+                if(pileSize > maxBeepers){
+                    maxBeepers = pileSize;
+                    maxBeepersX = roomba.street();
+                    maxBeepersY = roomba.avenue();
+                }
+    
+                roomba.move();
+                area++;
+            }
+			
+		
 
 
 		
