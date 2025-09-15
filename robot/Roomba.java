@@ -93,17 +93,18 @@ public class Roomba implements Directions {
                 roomba.turnLeft();
             }
         }
-		
+		System.out.println("Area: " + area);
+        System.out.println("Max Beepers: " + maxBeepers + " in the pile at (" + maxBeepersX + ", " + maxBeepersY + ")");
+        System.out.println("Number of piles: "+ pileCount);
+        System.out.println("Average pile size: " + ((double)totalBeepers/pileCount));
+        System.out.println("Percent dirty: " + 100 * ((double)pileCount/area) + "%");
+        return totalBeepers;
 
 
 
-		
-
-
-
-
+	
         // This method should return the total number of beepers cleaned up.
-		return totalBeepers;
+		
 	}
 }
 
