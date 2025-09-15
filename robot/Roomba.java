@@ -7,10 +7,10 @@ public class Roomba implements Directions {
 	// Main method to make this self-contained
 	public static void main(String[] args) {
 		// LEAVE THIS ALONE!!!!!!
-		String worldName = "robot/TestWorld-1.wld";
+		String worldName = "robot/finalTestWorld2024.wld";
 
 		Roomba cleaner = new Roomba();
-		int totalBeepers = cleaner.cleanRoom(worldName, 7, 6);
+		int totalBeepers = cleaner.cleanRoom(worldName, 26, 101);
 		System.out.println("Roomba cleaned up a total of " + totalBeepers + " beepers.");
 
 	}
@@ -49,8 +49,8 @@ public class Roomba implements Directions {
         int area = 0;
         int pileCount = 0;
         //whether to stop moving or continue looping
-        boolean continueCleaning = true;
-        while(continueCleaning == true){
+        boolean keepCleaning = true;
+        while(keepCleaning == true){
             while(roomba.frontIsClear()){
                 int pileSize = 0;
                 while(roomba.nextToABeeper()){
@@ -79,7 +79,7 @@ public class Roomba implements Directions {
                     roomba.turnLeft();
                 }
                 else{
-                    continueCleaning = false;
+                    keepCleaning = false;
                 }
             }
             else{
@@ -87,12 +87,18 @@ public class Roomba implements Directions {
                 roomba.turnLeft();
                 roomba.turnLeft();
                 roomba.turnLeft();
-                roomba.move();
+                if(roomba.frontIsClear){
+                    roomba.move();
                 roomba.turnLeft();
                 roomba.turnLeft();
                 roomba.turnLeft();
+                }
+                else{
+                    keepCleaning = false;
+                }
             }
         }
+		System.out.println(pileCount);
 		System.out.println("Area: " + area);
         System.out.println("Max Beepers: " + maxBeepers + " in the pile at (" + maxBeepersX + ", " + maxBeepersY + ")");
         System.out.println("Number of piles: "+ pileCount);
