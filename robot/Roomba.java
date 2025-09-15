@@ -72,8 +72,29 @@ public class Roomba implements Directions {
                 roomba.move();
                 area++;
             }
-			
+			if(roomba.facingEast()){
+                roomba.turnLeft();
+                if(roomba.frontIsClear()){
+                    roomba.move();
+                    roomba.turnLeft();
+                }
+                else{
+                    continueCleaning = false;
+                }
+            }
+            else{
+                //turning right
+                roomba.turnLeft();
+                roomba.turnLeft();
+                roomba.turnLeft();
+                roomba.move();
+                roomba.turnLeft();
+                roomba.turnLeft();
+                roomba.turnLeft();
+            }
+        }
 		
+
 
 
 		
