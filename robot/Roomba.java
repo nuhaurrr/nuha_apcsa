@@ -27,6 +27,7 @@ public class Roomba implements Directions {
         // Make sure it starts at startX and startY location.
 
 		World.readWorld(worldName);
+		World.setDelay(0);
 		World.setVisible(true);
 
      roomba = new Robot(startX, startY, East, 0);
@@ -34,32 +35,19 @@ public class Roomba implements Directions {
 		 * and cleans up all piles of beepers. Think about ways you can break this
 		 * large, complex task into smaller, easier to solve problems.
 		 */
+		//to track # of beepers in the biggest pile and its location 
+        int maxBeepers = 0;
+        int maxBeepersX = 0;
+        int maxBeepersY = 0; 
+
 
 		int totalBeepers = 0; // Need to move this somewhere else.
 		// the line below causes a null pointer exception
 		// what is that and why are we getting it?
-		roomba.move();
-		roomba.move();
-		while (roomba.nextToABeeper())
-		{
-			roomba.pickBeeper();
-			totalBeepers +=1 ;
-		}
-		roomba.move();
-		while (roomba.nextToABeeper())
-		{
-			roomba.pickBeeper();
-			totalBeepers +=1 ;
-		}
-		roomba.move();
-		roomba.move();
-		roomba.turnLeft();
-		roomba.move();
-		while (roomba.nextToABeeper())
-		{
-			roomba.pickBeeper();
-			totalBeepers +=1 ;
-		}
+
+
+		
+
 
 
 
