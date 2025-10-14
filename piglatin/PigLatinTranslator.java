@@ -8,6 +8,7 @@ public class PigLatinTranslator {
         // input book.
         // Curent do-nothing code will return an empty book.
         // Your code will need to call translate(String input) many times.
+        
 
         return translatedBook;
     }
@@ -34,6 +35,21 @@ public class PigLatinTranslator {
         // TODO: Replace this code to correctly translate a single word.
         // Start here first!
         // This is the first place to work.
+        if input.substring(0,1.).equals("a")||input.substring(0,1.).equals("e")||input.substring(0,1.).equals("i")||input.substring(0,1.).equals("o")||input.substring(0,1.).equals("u")||input.substring(0,1.).equals("y")
+        {
+            result = input + "ay";
+
+        }
+        else
+        {
+            while{
+                return input.substring(input.length()-2, input.length()) + input.substring(0,input.length()-2) + "ay";
+            }
+
+        }
+
+
+        
         
 
 
