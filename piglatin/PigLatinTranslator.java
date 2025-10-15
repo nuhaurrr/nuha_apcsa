@@ -35,29 +35,24 @@ public class PigLatinTranslator {
         // TODO: Replace this code to correctly translate a single word.
         // Start here first!
         // This is the first place to work.
-        String change = input
-        String test = "aeiouy";
-        if input.substring(0,1.).equals("a")||input.substring(0,1.).equals("e")||input.substring(0,1.).equals("i")||input.substring(0,1.).equals("o")||input.substring(0,1.).equals("u")||input.substring(0,1.).equals("y")
+        String change = input;
+        String vowels = "aeiouy";
+        if (input.substring(0,1).equals("a")||input.substring(0,1).equals("e")||input.substring(0,1).equals("i")||input.substring(0,1).equals("o")||input.substring(0,1).equals("u")||input.substring(0,1).equals("y"))
         {
             result = input + "ay";
+            return result;
 
         }
         else
         {
-            while (test.indexOf(change.substring(0,1)) == -1 )
+            while (vowels.indexOf(change.substring(0,1)) == -1 )
             {
                 change = change.substring(1) + change.substring(0,1);
             }
             result = change + "ay";
-
-
         }
 
-
         
-        
-
-
         return result;
     }
 
