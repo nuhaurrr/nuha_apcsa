@@ -51,7 +51,7 @@ public class PigLatinTranslator {
             }
             result = change + "ay";
         }
-
+        
         
         return result;
     }
