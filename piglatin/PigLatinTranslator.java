@@ -73,7 +73,7 @@ public class PigLatinTranslator {
         return result + tail;
     }
 }
-
+//fixed the test issue
 
     // Add additonal private methods here.
     // For example, I had one like this:
