@@ -36,14 +36,7 @@ public class PigLatinTranslator {
         // TODO: Replace this code to correctly translate a single word.
         // Start here first!
         // This is the first place to work.
-     
-    private static String translateWord(String input) {
-        System.out.println("  -> translateWord('" + input + "')");
-        String result = "";
-
-        // TODO: Replace this code to correctly translate a single word. 
-        // Start here first!
-        // This is the first place to work.
+    
 
         if (input.length() == 0)
         {
@@ -95,4 +88,4 @@ public class PigLatinTranslator {
     // For example, I had one like this:
     // private static String capitalizeFirstLetter(String input)
 
-}
+
