@@ -36,26 +36,60 @@ public class PigLatinTranslator {
         // TODO: Replace this code to correctly translate a single word.
         // Start here first!
         // This is the first place to work.
-        String change = input;
-        String vowels = "aeiouy";
-        if (input.substring(0,1).equals("a")||input.substring(0,1).equals("e")||input.substring(0,1).equals("i")||input.substring(0,1).equals("o")||input.substring(0,1).equals("u")||input.substring(0,1).equals("y"))
+     
+    private static String translateWord(String input) {
+        System.out.println("  -> translateWord('" + input + "')");
+        String result = "";
+
+        // TODO: Replace this code to correctly translate a single word. 
+        // Start here first!
+        // This is the first place to work.
+
+        if (input.length() == 0)
         {
-            result = input + "ay";
-            return result;
+            return "";
+        }
+
+        String vowels = "aeiouy";
+        String newinput = input;
+       
+
+        String punctuation = "";
+        if (!Character.isLetter(newinput.charAt(newinput.length() - 1))) {
+            punctuation = newinput.substring(newinput.length() - 1);
+            newinput = newinput.substring(0, newinput.length() - 1);
 
         }
-        else
-        {
-            while (vowels.indexOf(change.substring(0,1)) == -1 )
-            {
-                change = change.substring(1) + change.substring(0,1);
+
+        boolean firstCap = Character.isUpperCase(newinput.charAt(0));
+        boolean secondCap = newinput.length() > 1 && Character.isUpperCase(newinput.charAt(1));
+
+        newinput = newinput.toLowerCase();
+
+        if (vowels.indexOf(newinput.substring(0, 1)) != -1) {
+            result = newinput + "ay";
+        } else {
+            // Move first consonant(s) to the end
+            while (vowels.indexOf(newinput.substring(0, 1)) == -1 && newinput.length() > 1) {
+                newinput = newinput.substring(1) + newinput.substring(0, 1);
             }
-            result = change + "ay";
+            result = newinput + "ay";
         }
-        
-        
+        if (firstCap && !secondCap) {
+            result = result.substring(0, 1).toUpperCase() + result.substring(1);
+        } else if (firstCap && secondCap) {
+            result = result.substring(0, 2).toUpperCase() + result.substring(2);
+        }
+
+        result += punctuation;
+
         return result;
-    }
+    }     
+    
+}
+
+
+
 
     // Add additonal private methods here.
     // For example, I had one like this:
