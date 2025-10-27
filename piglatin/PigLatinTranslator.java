@@ -9,6 +9,12 @@ public class PigLatinTranslator {
         // input book.
         // Curent do-nothing code will return an empty book.
         // Your code will need to call translate(String input) many times.
+        for(int c = 0; c < input.getLineCount(); c ++){
+            Scanner sc = new Scanner(input.getLine(c));
+            while(sc.hasNextLine()){
+                translatedBook.appendLine(translate(sc.nextLine()));
+            }
+        }
         
 
         return translatedBook;
@@ -18,6 +24,13 @@ public class PigLatinTranslator {
         System.out.println("  -> translate('" + input + "')");
 
         String result = "";
+        Scanner sc = new Scanner(input);
+        while(sc.hasNext()){
+            result += translateWord(sc.next());
+            if(sc.hasNext()){
+                result += " ";
+            }
+        }
 
         // TODO: translate a string input, store in result.
         // The input to this function could be any English string.
@@ -28,60 +41,38 @@ public class PigLatinTranslator {
         return result;
     }
 
-    private static String translateWord(String input) {
-        System.out.println("  -> translateWord('" + input + "')");
-
+     private static String translateWord(String input) {
+        //System.out.println("  -> translateWord('" + input + "')");
         String result = "";
-
-        // TODO: Replace this code to correctly translate a single word.
-        // Start here first!
-        // This is the first place to work.
-    
-
-        if (input.length() == 0)
-        {
+        String test = "aeiouyAEIOUY";
+        if(input.length() == 0 || input.charAt(0) == ' '){
             return "";
         }
+        String tail = "";
+        String punct = ".,;:?!";
+        if(punct.indexOf(input.substring(input.length()-1)) >= 0){
 
-        String vowels = "aeiouy";
-        String newinput = input;
-       
-
-        String punctuation = "";
-        if (!Character.isLetter(newinput.charAt(newinput.length() - 1))) {
-            punctuation = newinput.substring(newinput.length() - 1);
-            newinput = newinput.substring(0, newinput.length() - 1);
-
+            tail += input.substring(input.length()-1);
+            input = input.substring(0,input.length()-1);
         }
-
-        boolean firstCap = Character.isUpperCase(newinput.charAt(0));
-        boolean secondCap = newinput.length() > 1 && Character.isUpperCase(newinput.charAt(1));
-
-        newinput = newinput.toLowerCase();
-
-        if (vowels.indexOf(newinput.substring(0, 1)) != -1) {
-            result = newinput + "ay";
-        } else {
-            // Move first consonant(s) to the end
-            while (vowels.indexOf(newinput.substring(0, 1)) == -1 && newinput.length() > 1) {
-                newinput = newinput.substring(1) + newinput.substring(0, 1);
+        boolean firstLetterCapital = Character.isUpperCase(input.charAt(0));
+        String change = (input.substring(0,1)).toLowerCase() + input.substring(1);
+        if(test.indexOf(change.charAt(0)) != -1){
+            result = input + "ay";
+        }
+        else{
+            while(test.indexOf(change.charAt(0)) == -1){
+                change = change.substring(1) + change.charAt(0);
             }
-            result = newinput + "ay";
+            result = change + "ay";
         }
-        if (firstCap && !secondCap) {
-            result = result.substring(0, 1).toUpperCase() + result.substring(1);
-        } else if (firstCap && secondCap) {
-            result = result.substring(0, 2).toUpperCase() + result.substring(2);
+        if(result.length() > 0 && firstLetterCapital){
+            result = (result.substring(0,1)).toUpperCase() + result.substring(1);
+            firstLetterCapital = false;
         }
-
-        result += punctuation;
-
-        return result;
-    }     
-    
+        return result + tail;
+    }
 }
-
-
 
 
     // Add additonal private methods here.
