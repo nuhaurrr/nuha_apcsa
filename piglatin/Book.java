@@ -49,7 +49,13 @@ public class Book {
     public void readFromString(String title, String string) {
         // load a book from an input string.
         this.title = title;
+        text.clear();
 
+        Scanner sc = new Scanner(string);
+        while (sc.hasNextLine()) {
+            text.add(sc.nextLine());
+        }
+        sc.close();
         // TODO: use Scanner to populate the book
         // use: text.add(line) to add a line to the book.
     }
@@ -61,6 +67,13 @@ public class Book {
 
         try {
             URL bookUrl = URI.create(url).toURL();
+            Scanner sc = new Scanner(bookUrl.openStream());
+
+            while (sc.hasNextLine()) {
+                text.add(sc.nextLine());
+            }
+
+            sc.close();
             // TODO: use Scanner to populate the book
             // Scanner can open a file on a URL like this:
             // Scanner(bookUrl.openStream())
@@ -71,6 +84,15 @@ public class Book {
     }
 
     void writeToFile(String name) {
+        try (PrintWriter out = new PrintWriter(new FileWriter(name))) {
+            for (String line : text) {
+                out.println(line);
+            }
+            System.out.println("Book \"" + title + "\" written to file: " + name);
+        } catch (IOException ex) {
+            System.err.println("Error writing book to file: " + name);
+            ex.printStackTrace();
+        }
         // TODO: Add code here to write the contents of the book to a file.
         // Must write to file using provided name.
     }
