@@ -39,39 +39,66 @@ public class PigLatinTranslator {
         // It may be made up of many words.
         // This method must call translateWord once for each word in the string.
         
+        private static String translateWord(String input) {
+        if (input == null || input.trim().isEmpty()) {
+            return input;
+        }
 
-     private static String translateWord(String input) {
-        //System.out.println("  -> translateWord('" + input + "')");
-        String result = "";
-        String test = "aeiouyAEIOUY";
-        if(input.length() == 0 || input.charAt(0) == ' '){
-            return "";
-        }
-        String tail = "";
-        String punct = ".,;:?!";
-        if(punct.indexOf(input.substring(input.length()-1)) >= 0){
+        String vowels = "aeiouyAEIOUY";
+        String punctuationMarks = ".,;:?!";
+        String word = input;
+        String punctuation = "";
 
-            tail += input.substring(input.length()-1);
-            input = input.substring(0,input.length()-1);
+        // Handle punctuation at the end
+        if (punctuationMarks.indexOf(word.charAt(word.length() - 1)) != -1) {
+            punctuation = word.substring(word.length() - 1);
+            word = word.substring(0, word.length() - 1);
         }
-        boolean firstLetterCapital = Character.isUpperCase(input.charAt(0));
-        String change = (input.substring(0,1)).toLowerCase() + input.substring(1);
-        if(test.indexOf(change.charAt(0)) != -1){
-            result = input + "ay";
-        }
-        else{
-            while(test.indexOf(change.charAt(0)) == -1){
-                change = change.substring(1) + change.charAt(0);
+
+        boolean wasCapitalized = Character.isUpperCase(word.charAt(0));
+        word = word.toLowerCase();
+
+        String result;
+        if (vowels.indexOf(word.charAt(0)) != -1) {
+            // Word starts with a vowel
+            result = word + "yay";
+        } else {
+            // Move consonants from start to first vowel to the end
+            int firstVowelIndex = findFirstVowel(word);
+            if (firstVowelIndex == -1) {
+                // No vowels found
+                result = word + "ay";
+            } else {
+                result = word.substring(firstVowelIndex) + word.substring(0, firstVowelIndex) + "ay";
             }
-            result = change + "ay";
         }
-        if(result.length() > 0 && firstLetterCapital){
-            result = (result.substring(0,1)).toUpperCase() + result.substring(1);
-            firstLetterCapital = false;
+
+        // Restore capitalization
+        if (wasCapitalized && result.length() > 0) {
+            result = capitalizeFirstLetter(result);
         }
-        return result + tail;
+
+        // Reattach punctuation
+        return result + punctuation;
+    }
+
+    private static int findFirstVowel(String word) {
+        String vowels = "aeiouy";
+        for (int i = 0; i < word.length(); i++) {
+            if (vowels.indexOf(word.charAt(i)) != -1) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    private static String capitalizeFirstLetter(String input) {
+        if (input == null || input.isEmpty()) return input;
+        return input.substring(0, 1).toUpperCase() + input.substring(1).toLowerCase();
     }
 }
+
+     
 //fixed the test issue
 
     // Add additonal private methods here.
