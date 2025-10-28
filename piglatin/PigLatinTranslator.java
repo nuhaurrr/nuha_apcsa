@@ -20,23 +20,25 @@ public class PigLatinTranslator {
     public static String translate(String input) {
         System.out.println("  -> translate('" + input + "')");
 
-        String result = "";
+        StringBuilder result = new StringBuilder();
         Scanner sc = new Scanner(input);
-        while(sc.hasNext()){
-            result += translateWord(sc.next());
-            if(sc.hasNext()){
-                result += " ";
+        while (sc.hasNext()) {
+            String word = sc.next();
+            result.append(translateWord(word));
+            if (sc.hasNext()) {
+                result.append(" ");
             }
         }
+
+        sc.close();
+        return result.toString();
+    }
 
         // TODO: translate a string input, store in result.
         // The input to this function could be any English string.
         // It may be made up of many words.
         // This method must call translateWord once for each word in the string.
-        result = translateWord(input);
-
-        return result;
-    }
+        
 
      private static String translateWord(String input) {
         //System.out.println("  -> translateWord('" + input + "')");
