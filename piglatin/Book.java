@@ -96,4 +96,17 @@ public class Book {
         // TODO: Add code here to write the contents of the book to a file.
         // Must write to file using provided name.
     }
+            public static void main(String[] args) {
+        Book myBook = new Book();
+        myBook.readFromUrl("Alice in Wonderland", 
+            "https://www.gutenberg.org/files/11/11-0.txt");
+
+        // Print a few lines to verify it loaded correctly
+        myBook.printlines(0, 5);
+
+        // Save it locally (optional)
+        myBook.writeToFile("AliceInWonderland.txt");
+    }
+}
+
 }
