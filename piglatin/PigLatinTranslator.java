@@ -9,13 +9,10 @@ public class PigLatinTranslator {
         // input book.
         // Curent do-nothing code will return an empty book.
         // Your code will need to call translate(String input) many times.
-        for(int c = 0; c < input.getLineCount(); c ++){
-            Scanner sc = new Scanner(input.getLine(c));
-            while(sc.hasNextLine()){
-                translatedBook.appendLine(translate(sc.nextLine()));
-            }
+        for (int c = 0; c < input.getLineCount(); c++) {
+            String line = input.getLine(c);
+            translatedBook.appendLine(translate(line));
         }
-        
 
         return translatedBook;
     }
