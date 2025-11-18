@@ -1,35 +1,36 @@
 package cards;
 
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class Deck {
-    
+
     private ArrayList<Card> cards;
 
     public Deck() {
         cards = new ArrayList<Card>();
 
-        String[] suits = {"♦", "♣", "♥", "♠"};
-        String[] values = {"A", "2", "3", "4", "5", "6", "7",
-                           "8", "9", "10", "J", "Q", "V"};
-
-        for (String suit : suits) {
-            for (String value : values) {
+        // Default deck order:
+        // Suit: 0–3   (♦, ♣, ♥, ♠)
+        // Value: 0–12 (A … K)
+        for (int suit = 0; suit < 4; suit++) {
+            for (int value = 0; value < 13; value++) {
                 cards.add(new Card(suit, value));
             }
         }
     }
 
-    /** Randomizes the order of the cards */
+    /** Randomizes the deck. */
     public void shuffle() {
         Collections.shuffle(cards);
     }
 
-    /** 
-     * Moves the first `index` cards to the end, preserving order.
-     * Only valid on a full (52-card) deck.
+    /**
+     * Moves cards [0, index) to the end of the deck.
+     * Only allowed if deck has all 52 cards.
      */
     public void cut(int index) {
-        if (cards.size() != 52) return;  // only allowed on a full deck
+        if (cards.size() != 52) return;
 
         ArrayList<Card> top = new ArrayList<Card>(cards.subList(0, index));
         ArrayList<Card> bottom = new ArrayList<Card>(cards.subList(index, 52));
@@ -39,14 +40,13 @@ public class Deck {
         cards.addAll(top);
     }
 
-    /** Removes and returns the top card of the deck */
+    /** Removes and returns the top card, or null if empty. */
     public Card draw() {
-        if (cards.isEmpty())
-            return null;
+        if (cards.isEmpty()) return null;
         return cards.remove(0);
     }
 
-    /** Prints the first n cards on one line separated by spaces */
+    /** Prints the first n cards on one line, separated by spaces. */
     public void print(int n) {
         StringBuilder sb = new StringBuilder();
 
@@ -58,5 +58,3 @@ public class Deck {
         System.out.println(sb.toString());
     }
 }
-
-
