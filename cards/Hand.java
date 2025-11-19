@@ -36,7 +36,9 @@ public class Hand {
      * Valid index is 0 to length-1.
      */
     public Card get(int index) {
-        if (index < 0 || index >= size) return null;  // guard for safety
+        if (index < 0 || index >= size) {
+            return null;
+        }
         return cards[index];
     }
 
@@ -45,7 +47,9 @@ public class Hand {
      * All cards after index shift left by one position.
      */
     public Card remove(int index) {
-        if (index < 0 || index >= size) return null;
+        if (index < 0 || index >= size) {
+            return null;
+        }
 
         Card removed = cards[index];
 
