@@ -81,3 +81,5 @@ public class GameOfLife implements Board {
         System.out.println();
     }
 }
+
+//added the game of life
