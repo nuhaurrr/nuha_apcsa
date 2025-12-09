@@ -25,6 +25,7 @@ public class GameOfLife implements Board {
     // Run the simulation for a number of turns
     public void run(int turns) {
         // call step the number of times requested
+        //DO THIS
 
     }
 
@@ -33,6 +34,7 @@ public class GameOfLife implements Board {
     {
         print();
         // Update the game board, store a 1 if the cell is alive and a 0 otherwise.
+        //DO THIS
     }
 
 
