@@ -64,7 +64,7 @@ public class GameOfLife implements Board {
         board = next;
     }
 
-    }
+    
 
 
     public int countNeighbors(int x, int y) {
