@@ -26,6 +26,9 @@ public class GameOfLife implements Board {
     public void run(int turns) {
         // call step the number of times requested
         //DO THIS
+        for (int i =0; i < turns; i++) {
+            step();
+        }
 
     }
 
