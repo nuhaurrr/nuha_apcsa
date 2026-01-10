@@ -21,6 +21,13 @@ public class Main {
             }
         }
 
+        // If remaining number is greater than 1, it is prime
+        if (number > 1) {
+            largestPrimeFactor = number;
+        }
+
+        System.out.println("Largest prime factor: " + largestPrimeFactor);
+
     }
 }
 
