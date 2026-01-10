@@ -13,6 +13,14 @@ public class Main {
             number /= 2;
         }
 
+        // Check odd factors
+        for (long i = 3; i * i <= number; i += 2) {
+            while (number % i == 0) {
+                largestPrimeFactor = i;
+                number /= i;
+            }
+        }
+
     }
 }
 
