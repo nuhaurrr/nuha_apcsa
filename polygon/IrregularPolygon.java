@@ -54,6 +54,24 @@ public class IrregularPolygon {
             // Documents: https://pavao.org/compsci/gpdraw/html/gpdraw/DrawingTool.html
             //DrawingTool myDrawingTool = new DrawingTool(new SketchPad(500, 500));
             //myDrawingTool.move(50, 50);
+            if (myPolygon.size() < 2) {
+                return; 
+            }
+
+            DrawingTool pen = new DrawingTool(new SketchPad(500, 500));
+            pen.up();
+
+            Point2D.Double first = myPolygon.get(0);
+            pen.move(first.getX(), first.getY());
+            pen.down();
+
+            for (int i = 1; i<=myPolygon.size()-1; i++) {
+                Point2D.Double next = myPolygon.get(i);
+                pen.move(next.x, next.y);
+            }
+             
+            pen.move(first.x, first.y);
+            pen.up();
         } catch (java.awt.HeadlessException e) {
             System.out.println("Exception: No graphics support available.");
         }
