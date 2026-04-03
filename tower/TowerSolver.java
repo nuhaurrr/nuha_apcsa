@@ -32,3 +32,5 @@ public class TowerSolver {
     }
 
 }
+
+//checked for errors
